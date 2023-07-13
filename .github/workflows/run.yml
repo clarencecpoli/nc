@@ -12,7 +12,7 @@ jobs:
         uses: projectdiscovery/nuclei-action@main
         with:
           urls: result.txt
-          flags: "-severity critical,high,medium -stats"
+          flags: "-tags default-login,takeover,keys,redirect,rce,panel,config,exposure,env,api,cve -stats"
 
       - name: GitHub Workflow artifacts
         uses: actions/upload-artifact@v2
