@@ -13,7 +13,6 @@ jobs:
         with:
           urls: result.txt
           flags: "-severity critical,high,medium -stats"
-          report-config: issues.yaml
 
       - name: GitHub Workflow artifacts
         uses: actions/upload-artifact@v2
