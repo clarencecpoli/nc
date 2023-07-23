@@ -1,0 +1,22 @@
+id: sucuri-takeover
+info:
+  name: Check Sucuri/Godaddy Subdomain Takeover via HTTP
+  author: lily985
+  severity: high
+  description: Sucuri/Godaddy Subdomain Takeover via HTTP
+  tags: subdomain, takeover
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    redirects: true
+    matchers-condition: and
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - "(?i)sucuri|godaddy"
+      - type: dsl
+        dsl:
+          - "status_code >= 400 && status_code < 600"
