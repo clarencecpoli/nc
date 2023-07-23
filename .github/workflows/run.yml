@@ -1,4 +1,4 @@
-name: Nuclei - Vulnerability Scan
+name: 💫 Nuclei - Vulnerability Scan
 
 on:
   workflow_dispatch:
@@ -12,7 +12,10 @@ jobs:
         uses: projectdiscovery/nuclei-action@main
         with:
           urls: result.txt
-          flags: "-tags takeover,rce,redirect,config,env -stats"
+          user-agent: true
+          templates: "./"
+          nuclei-ignore: false
+          flags: "-stats"
           github-report: true
           github-token: ${{ secrets.GITTOKEN }}
 
